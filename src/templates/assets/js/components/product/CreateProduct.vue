@@ -198,8 +198,7 @@ export default {
 
       console.log(product);
     }
-
-
+    
   },
   mounted() {
     console.log('Component mounted.')

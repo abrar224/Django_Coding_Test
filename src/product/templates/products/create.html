@@ -5,11 +5,37 @@
 {% block content %}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Create Product</h1>
-    <a href="{% url 'product:create.product' %}" class="float-right btn btn-primary">All Product</a>
+    <a href="/product/list" class="float-right btn btn-primary">All Product</a>
 </div>
 
 <div id="app">
     <create-product :variants="{{variants|safe}}"></create-product>
+    <div class="row justify-content-center">
+        <form class="col-md-6" method="post" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" class="form-control" id="product" placeholder="Product Name">
+              </div><br>
+              <div class="form-group">
+                <label>Product SKU</label>
+                <input type="text" class="form-control" id="SKU" placeholder="Product Name">
+              </div><br>
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" id="description" rows="4"></textarea>
+              </div><br>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label">Media</label>
+                <input class="form-control form-control-sm" id="files" type="file">
+              </div><br>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="/dashboard" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}
